@@ -1,0 +1,143 @@
+/* numnotes.com — one quiet page, in the app's own Classic colours and fonts. */
+
+@font-face {
+  font-family: "Caprasimo";
+  src: url("fonts/Caprasimo-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("fonts/Figtree-VariableFont_wght.ttf") format("truetype");
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+:root {
+  --bg: #F5EAD8;
+  --ink: #201E1D;
+  --muted: #82796A;
+  --accent: #C67139;
+  --rule: rgba(32, 30, 29, 0.16);
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #201E1D;
+    --ink: #F5EAD8;
+    --muted: #A19786;
+    --accent: #D98A55;
+    --rule: rgba(245, 234, 216, 0.16);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Figtree", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------- Home ---------- */
+
+.home {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.icon {
+  width: 112px;
+  height: 112px;
+  border-radius: 25px;
+  box-shadow: 0 0 0 1px var(--rule);
+}
+.icon.dark { display: none; }
+@media (prefers-color-scheme: dark) {
+  .icon.light { display: none; }
+  .icon.dark { display: inline-block; }
+}
+
+.wordmark {
+  font-family: "Caprasimo", Georgia, serif;
+  font-weight: normal;
+  font-size: clamp(44px, 9vw, 72px);
+  line-height: 1;
+  margin: 28px 0 14px;
+  letter-spacing: 0.005em;
+}
+
+.tagline {
+  font-size: clamp(18px, 2.6vw, 22px);
+  color: var(--muted);
+  margin: 0 0 40px;
+}
+
+.store {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 999px;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 16px;
+}
+.store:hover { background: var(--ink); color: var(--bg); text-decoration: none; }
+
+/* ---------- Text pages (Privacy, Support) ---------- */
+
+.page {
+  flex: 1;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 40px 24px 24px;
+}
+
+.page header { margin-bottom: 36px; }
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+}
+.back img { width: 32px; height: 32px; border-radius: 8px; box-shadow: 0 0 0 1px var(--rule); }
+.back span { font-family: "Caprasimo", Georgia, serif; font-size: 22px; }
+.back:hover { text-decoration: none; }
+
+h1 { font-size: 30px; font-weight: 700; margin: 0 0 8px; line-height: 1.2; }
+h2 { font-size: 19px; font-weight: 700; margin: 36px 0 8px; }
+p  { margin: 0 0 14px; }
+
+.updated { color: var(--muted); font-size: 15px; margin-bottom: 28px; }
+
+.langs { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 0 0 8px; font-size: 15px; }
+
+section.lang { padding-top: 12px; border-top: 1px solid var(--rule); margin-top: 32px; }
+
+/* ---------- Footer ---------- */
+
+footer {
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+  padding: 24px 24px 32px;
+}
+footer a { color: var(--muted); }
+footer .dot { margin: 0 8px; }
