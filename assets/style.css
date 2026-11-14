@@ -82,6 +82,9 @@ a:hover { text-decoration: underline; }
   letter-spacing: 0.005em;
 }
 
+/* "Notes" in the app's Classic accent (terracotta #C67139), in light and dark alike. */
+.wordmark .notes { color: #C67139; }
+
 .tagline {
   font-size: clamp(18px, 2.6vw, 22px);
   color: var(--muted);
